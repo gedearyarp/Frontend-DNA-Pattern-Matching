@@ -1,14 +1,16 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 import {
     Box
 } from '@chakra-ui/react';
 
-function SearchDNA() {
+function Header() {
     return (
         <Box>
-            search
+            check
         </Box>
     )
 }
 
-export default SearchDNA;
+export default Header;
