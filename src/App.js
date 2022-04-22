@@ -1,12 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Home from './pages/Home';
 import UploadDNA from './pages/UploadDNA';
 import CheckDNA from './pages/CheckDNA';
 import SearchDNA from './pages/SearchDNA';
 import './font.css';
-
+import { 
+  BrowserRouter, 
+  Routes, 
+  Route 
+} from "react-router-dom";
 import {
   ChakraProvider,
   extendTheme

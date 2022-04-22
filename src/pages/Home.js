@@ -1,6 +1,8 @@
 import React from 'react';
 import dnaLogo from '../images/dnalogoresize.png';
-
+import { 
+    Link 
+} from "react-router-dom";
 import {
     Center,
     Stack,
@@ -11,7 +13,6 @@ import {
     Spacer,
     Flex,
 } from '@chakra-ui/react';
-
 import {
     ArrowForwardIcon,
 } from '@chakra-ui/icons'
@@ -38,29 +39,35 @@ function Home() {
                 <Box>
                     <Center>
                         <Stack spacing="15px">
-                            <Button px="25px" py="20px" bg="#E45858" border='4px' borderColor="#2B2C34" borderRadius='30px' w="17vw">
-                                <Text color="#FFFFFE" fontSize="21px" m="3">
-                                    Test Your DNA
-                                </Text>
-                                <Spacer />
-                                <ArrowForwardIcon color="#FFFFFE" w={6} h={6}/>
-                            </Button>
+                            <Link to="/check-dna">
+                                <Button px="25px" py="20px" bg="#E45858" border='4px' borderColor="#2B2C34" borderRadius='30px' w="100%">
+                                    <Text color="#FFFFFE" fontSize="21px" m="3">
+                                        Test Your DNA
+                                    </Text>
+                                    <Spacer />
+                                    <ArrowForwardIcon color="#FFFFFE" w={6} h={6}/>
+                                </Button>
+                            </Link>
 
-                            <Button px="25px" py="20px" bg="#6246EA" border='4px' borderColor="#2B2C34" borderRadius='30px' w="17vw">
-                                <Text color="#FFFFFE" fontSize="21px" m={3}>
-                                    Search History
-                                </Text>
-                                <Spacer />
-                                <ArrowForwardIcon color="#FFFFFE" w={6} h={6}/>
-                            </Button>
+                            <Link to="/search-dna">
+                                <Button px="25px" py="20px" bg="#6246EA" border='4px' borderColor="#2B2C34" borderRadius='30px' w="100%">
+                                    <Text color="#FFFFFE" fontSize="21px" m={3}>
+                                        Search History
+                                    </Text>
+                                    <Spacer />
+                                    <ArrowForwardIcon color="#FFFFFE" w={6} h={6}/>
+                                </Button>
+                            </Link>
 
-                            <Button px="25px" py="20px" bg="#6246EA" border='4px' borderColor="#2B2C34" borderRadius='30px' w="17vw">
-                                <Text color="#FFFFFE" fontSize="21px" m={3}>
-                                    Upload DNA Disease
-                                </Text>
-                                <Spacer />
-                                <ArrowForwardIcon color="#FFFFFE" w={6} h={6}/>
-                            </Button>
+                            <Link to="/upload-dna">
+                                <Button px="25px" py="20px" bg="#6246EA" border='4px' borderColor="#2B2C34" borderRadius='30px' w="100%">
+                                    <Text color="#FFFFFE" fontSize="21px" m={3}>
+                                        Upload DNA Disease
+                                    </Text>
+                                    <Spacer />
+                                    <ArrowForwardIcon color="#FFFFFE" w={6} h={6}/>
+                                </Button>
+                            </Link>
                         </Stack>
                     </Center>
                 </Box>
