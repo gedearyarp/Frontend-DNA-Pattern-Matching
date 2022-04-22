@@ -1,4 +1,6 @@
 import React from 'react';
+import dnaLogo from '../images/dnalogoresize.png';
+
 import {
     Center,
     Stack,
@@ -7,7 +9,9 @@ import {
     Text,
     Button,
     Spacer,
+    Flex,
 } from '@chakra-ui/react';
+
 import {
     ArrowForwardIcon,
 } from '@chakra-ui/icons'
@@ -15,17 +19,17 @@ import {
 
 function Home() {
     return (
-        <Center  bg="#FFFFFE">
-            <Stack>
+        <Flex w="100%" bg="#FFFFFE" alignItems="center" justifyContent="center">
+            <Stack d="flex" flexDir="column" h="90vh" alignItems="center" justifyContent="center">
                 {/* LOGO WEBSITE */}
-                <Box p="20">
-                    <Image src="../images/DNAr" maxW="10px" mx="auto" />
+                <Box>
+                    <Image src={dnaLogo} height="20vh" mx="auto" alt='DNA Prasmanan Logo'/>
                 </Box>
 
                 {/* LANDING TEXT */}
                 <Box>
-                    <Text fontSize="4xl" align="center" fontWeight="bold" color="#2B2C34" mb={6}>
-                        Identify Your Disease <br></br>
+                    <Text fontSize="5xl" align="center" fontWeight="bold" color="#2B2C34" mb={6}>
+                        Identify Your Disease <br/>
                         With DNAmatch
                     </Text>
                 </Box>
@@ -33,25 +37,25 @@ function Home() {
                 {/* BUTTONS */}
                 <Box>
                     <Center>
-                        <Stack mb={20}>
-                            <Button bg="#E45858" border='2px' borderColor="#2B2C34" borderRadius='30px' w="25vw">
-                                <Text color="#FFFFFE" fontSize="18px" m="3">
+                        <Stack spacing="15px">
+                            <Button px="25px" py="20px" bg="#E45858" border='4px' borderColor="#2B2C34" borderRadius='30px' w="17vw">
+                                <Text color="#FFFFFE" fontSize="21px" m="3">
                                     Test Your DNA
                                 </Text>
                                 <Spacer />
                                 <ArrowForwardIcon color="#FFFFFE" w={6} h={6}/>
                             </Button>
 
-                            <Button bg="#6246EA" border='2px' borderColor="#2B2C34" borderRadius='30px' w="25vw">
-                                <Text color="#FFFFFE" fontSize="18px" m={3}>
+                            <Button px="25px" py="20px" bg="#6246EA" border='4px' borderColor="#2B2C34" borderRadius='30px' w="17vw">
+                                <Text color="#FFFFFE" fontSize="21px" m={3}>
                                     Search History
                                 </Text>
                                 <Spacer />
                                 <ArrowForwardIcon color="#FFFFFE" w={6} h={6}/>
                             </Button>
 
-                            <Button bg="#6246EA" border='2px' borderColor="#2B2C34" borderRadius='30px' w="25vw">
-                                <Text color="#FFFFFE" fontSize="18px" m={3}>
+                            <Button px="25px" py="20px" bg="#6246EA" border='4px' borderColor="#2B2C34" borderRadius='30px' w="17vw">
+                                <Text color="#FFFFFE" fontSize="21px" m={3}>
                                     Upload DNA Disease
                                 </Text>
                                 <Spacer />
@@ -63,15 +67,21 @@ function Home() {
 
                 {/* Watermark */}
                 <Box>
-                    <Text align="center" >
-                        © 2022 prasmanan. <br></br>
-                        This site created to fulfill the tubes stima 3.
-                    </Text>
+                    <Center >
+                        <Box position="fixed" bottom="20px">
+                            <Text align="center">
+                                © 2022 prasmanan.
+                            </Text>
+                            <Text align="center">
+                                This site created to fulfill the tubes stima 3.
+                            </Text>
+                        </Box>
+                    </Center>
                 </Box>
             </Stack>
             
             
-        </Center>
+        </Flex>
     )
 }
 
