@@ -74,7 +74,7 @@ function Home() {
 
                 {/* Watermark */}
                 <Box>
-                    <Center >
+                    <Center>
                         <Box position="fixed" bottom="20px">
                             <Text align="center">
                                 © 2022 prasmanan.
@@ -86,8 +86,6 @@ function Home() {
                     </Center>
                 </Box>
             </Stack>
-            
-            
         </Flex>
     )
 }
