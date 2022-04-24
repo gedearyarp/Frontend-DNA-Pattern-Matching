@@ -23,6 +23,7 @@ const LinkPage = ({currentPage, thisPage, linkPage}) => {
           py={1}
           rounded={'md'}
           fontWeight="bold"
+          fontSize="xl"
           closeOnOverlayClick={true}
           _hover={{
             textDecoration: 'none',
@@ -40,6 +41,7 @@ const LinkPage = ({currentPage, thisPage, linkPage}) => {
           py={1}
           rounded={'md'}
           fontWeight="normal"
+          fontSize="xl"
           closeOnOverlayClick={true}
           _hover={{
             textDecoration: 'none',
@@ -57,12 +59,12 @@ const LinkPage = ({currentPage, thisPage, linkPage}) => {
 
 const Links = ({currentPage}) => {
   return (
-    <Box>
+    <HStack spacing='30px'>
       <LinkPage currentPage={currentPage} thisPage='Home' linkPage='/'/>
       <LinkPage currentPage={currentPage} thisPage='Test' linkPage='/check-dna'/>
       <LinkPage currentPage={currentPage} thisPage='Search' linkPage='/search-dna'/>
       <LinkPage currentPage={currentPage} thisPage='Upload' linkPage='/upload-dna'/>
-    </Box>
+    </HStack>
   )
 }
 
@@ -71,12 +73,12 @@ function Header({currentPage}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-      <Box bg={"#FFFFFE"} px={4}>
-        <Flex h={12} alignItems={'center'} justifyContent={'right'}>
+      <Box bg={"#FFFFFE"} px="10%">
+        <Flex h="60px" alignItems={'center'} justifyContent={'right'}>
           {isOpen ? (
-            <Box mr={5}>
+            <Box>
               <Stack as={'nav'} spacing={4}>
-                <Links currentPage={currentPage}/>
+                <Links currentPage={currentPage} mr="5vw"/>
               </Stack>
             </Box>
           ) : null}
