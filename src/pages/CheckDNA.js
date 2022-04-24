@@ -36,21 +36,21 @@ function CheckDNA() {
                     {/* Input */}
                     <Box h="40%">
                         <Stack d="flex" flexDir="row" alignItems="center" justifyContent="center">
-                            <Box>
+                            <Box w='30%'>
                                 <Text align="center" fontWeight="bold" fontSize="2xl" pb="4px">
                                     Username
                                 </Text>
-                                <Input border='4px' borderColor="#2B2C34" borderRadius='30px' w="100%" bg="#D1D1E9" variant='filled' placeholder="Input Your Username"/>
+                                <Input border='4px' borderColor="#2B2C34" borderRadius='30px' w="100%" bg="#D1D1E9" variant='filled' placeholder="Input Your Username" textAlign="center" />
                             </Box>
                             <Spacer />
-                            <Box>
+                            <Box w='30%'>
                                 <Text align="center" fontWeight="bold" fontSize="2xl" pb="4px">
                                     User Sequence DNA
                                 </Text>
                                 <Button border='4px' borderColor="#2B2C34" borderRadius='30px' w="100%" bg="#D1D1E9">Upload File...</Button>
                             </Box>
                             <Spacer />
-                            <Box>
+                            <Box w='30%'>
                                 <Text align="center" fontWeight="bold" fontSize="2xl" pb="4px">
                                     Disease Prediction
                                 </Text>
