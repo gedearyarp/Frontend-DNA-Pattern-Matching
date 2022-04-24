@@ -10,6 +10,8 @@ import {
     Box,
     Spacer,
     Text,
+    Grid,
+    GridItem,
 
 } from '@chakra-ui/react';
 
@@ -26,40 +28,52 @@ function CheckDNA() {
             <Stack  pr="10%" pl="10%" pt="3%" h="87vh">
 
                 {/* TEXT LANDING */}
-                <Box pb="1%">
+                <Box pb="2%">
                     <Text fontWeight="bold" fontSize="4xl" align="center" borderBottom="1px" borderColor="#E45858" W="10px">
                         DNA TESTING
                     </Text>
                 </Box>
 
                 {/* Input */}
-                <Box h="40%">
-                    <Stack d="flex" flexDir="row" alignItems="center" justifyContent="center">
-                        <Box w='30%'>
+                <Box h="50%">
+
+                    <Grid gap={1} templateColumns="repeat(11,1fr)" templateRows="repeat(1,1fr)" >
+                        {/* Row 1 : Text */}
+                        <GridItem colSpan={3}>
                             <Text align="center" fontWeight="bold" fontSize="2xl" pb="4px">
                                 Username
                             </Text>
-                            <Input border='4px' borderColor="#2B2C34" borderRadius='30px' w="100%" bg="#D1D1E9" variant='filled' placeholder="Input Your Username" textAlign="center" />
-                        </Box>
-                        <Spacer />
-                        <Box w='30%'>
+                        </GridItem>
+                            <GridItem colSpan={1} />
+                        <GridItem colSpan={3}>
                             <Text align="center" fontWeight="bold" fontSize="2xl" pb="4px">
                                 User Sequence DNA
                             </Text>
-                            <Button border='4px' borderColor="#2B2C34" borderRadius='30px' w="100%" bg="#D1D1E9">Upload File...</Button>
-                        </Box>
-                        <Spacer />
-                        <Box w='30%'>
+                        </GridItem>
+                            <GridItem colSpan={1} />
+                        <GridItem colSpan={3}>
                             <Text align="center" fontWeight="bold" fontSize="2xl" pb="4px">
                                 Disease Prediction
                             </Text>
-                            <Select border='4px' borderColor="#2B2C34" borderRadius='30px' w="100%" bg="#D1D1E9" variant='filled' placeholder="Choose Disease" />
-                        </Box>
-                    </Stack>
+                        </GridItem>
+
+                        {/* Row 2 : Button & Space */}
+                        <GridItem colSpan={3}>
+                            <Input border='4px' borderColor="#2B2C34" borderRadius='30px' w="100%" bg="#D1D1E9" variant='filled' placeholder="Input Your Username" textAlign="center" />
+                        </GridItem>
+                            <GridItem colSpan={1} />
+                        <GridItem colSpan={3}>
+                            <Button border='4px' borderColor="#2B2C34" borderRadius='30px' w="100%" bg="#D1D1E9">Upload File...</Button>
+                        </GridItem>
+                            <GridItem colSpan={1} />
+                        <GridItem colSpan={3}>
+                            <Select border='4px' borderColor="#2B2C34" borderRadius='30px' w="100%" bg="#D1D1E9" variant='filled' placeholder="Choose Disease" /> 
+                        </GridItem>
+                    </Grid>
                     
                     {/* Submit Button */}
                     <Box>
-                        <Center pt="7%">
+                        <Center pt="3.5%" pb="2%">
                             <Button w="30%" bg="#6246EA" border='4px' borderColor="#2B2C34" borderRadius='30px'>
                                 <Text color="#FFFFFE" fontSize="21px" m={3}>
                                     Submit

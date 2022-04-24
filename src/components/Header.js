@@ -10,31 +10,82 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
-const Links = ['Home', 'Test', 'Search', 'Upload'];
-// const path = ['/', 'check-dna', '/search-dna', 'upload-dna']
+const Links = () => {
+  return (
+    <Box>
+      {/* HOME */}
+      <Link
+        px={2}
+        py={1}
+        rounded={'md'}
+        fontWeight="medium"
+        _hover={{
+          textDecoration: 'none',
+          fontWeight:"semibold",
+          color:"#6246EA",
+          border:"2px",
+          padding:"8px",
+          borderColor:"#2B2C34"
+        }}
+        href={'/'}>
+          Home
+      </Link>
 
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    fontWeight="normal"
-    _hover={{
-      textDecoration: 'none',
-      fontWeight:"bold",
-      color:"#E45858"
-    }}
-    href={'/'}>
-    {children}
-  </Link>
-);
+      {/* TEST */}
+      <Link
+        px={2}
+        py={1}
+        rounded={'md'}
+        fontWeight="normal"
+        _hover={{
+          textDecoration: 'none',
+          fontWeight:"semibold",
+          color:"#E45858",
+        }}
+        href={'/check-dna'}>
+          Test
+      </Link>
+
+      {/* SEARCH */}
+      <Link
+        px={2}
+        py={1}
+        rounded={'md'}
+        fontWeight="normal"
+        _hover={{
+          textDecoration: 'none',
+          fontWeight:"semibold",
+          color:"#E45858",
+        }}
+        href={'/search-dna'}>
+          Search
+      </Link>
+
+      {/* UPLOAD */}
+      <Link
+        px={2}
+        py={1}
+        rounded={'md'}
+        fontWeight="normal"
+        _hover={{
+          textDecoration: 'none',
+          fontWeight:"semibold",
+          color:"#E45858",
+        }}
+        href={'/upload-dna'}>
+          Upload
+      </Link>
+    </Box>
+  )
+}
+
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
       <Box bg={"#FFFFFE"} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'right'}>
+        <Flex h={12} alignItems={'center'} justifyContent={'right'}>
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -42,14 +93,12 @@ export default function Header() {
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <HStack spacing={8} alignItems={'center'}>
+          <HStack spacing={9} alignItems={'center'}>
             <HStack
               as={'nav'}
-              spacing={4}
+              spacing={8}
               display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              <Links />
             </HStack>
           </HStack>
           
@@ -58,9 +107,7 @@ export default function Header() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              <Links />
             </Stack>
           </Box>
         ) : null}
