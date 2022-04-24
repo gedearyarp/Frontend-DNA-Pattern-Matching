@@ -153,6 +153,7 @@ function CheckDNA() {
                             >
                                 <Button 
                                     py="20px" 
+                                    h="60px"
                                     w="25%" 
                                     bg="#6246EA" 
                                     border='4px' 
@@ -164,7 +165,7 @@ function CheckDNA() {
                                         fontSize={{xl:'21px', lg:'15.5px', md:'11px', sm:'7'}} 
                                         m={4}
                                     >
-                                        Submit
+                                        SUBMIT
                                     </Text>
                                 </Button>
                             </Center>
