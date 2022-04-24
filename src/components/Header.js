@@ -18,7 +18,7 @@ const NavLink = ({ children }) => (
     px={2}
     py={1}
     rounded={'md'}
-    fontWeight="semibold"
+    fontWeight="normal"
     _hover={{
       textDecoration: 'none',
       fontWeight:"bold",
