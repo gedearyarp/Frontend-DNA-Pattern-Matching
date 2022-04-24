@@ -19,7 +19,7 @@ function UploadDNA() {
             {/* HEADER -> NAVBAR */}
             
             <Box borderBottom="1px" borderColor="#2B2C34">
-                <Header />
+                <Header currentPage='Upload'/>
             </Box>
             
             {/* CONTENT */}

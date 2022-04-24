@@ -8,7 +8,6 @@ import {
     Select,
     Center,
     Box,
-    Spacer,
     Text,
     Grid,
     GridItem,
@@ -21,7 +20,7 @@ function CheckDNA() {
         <Box>
             {/* HEADER -> NAVBAR */}
             <Box borderBottom="1px" borderColor="#2B2C34">
-                <Header />
+                <Header currentPage='Test'/>
             </Box>
             
             {/* CONTENT */}

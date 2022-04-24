@@ -19,7 +19,7 @@ function SearchDNA() {
             {/* HEADER -> NAVBAR */}
             
             <Box borderBottom="1px" borderColor="#2B2C34">
-                <Header />
+            <Header currentPage='Search'/>
             </Box>
             
             {/* CONTENT */}
