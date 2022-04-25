@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/Header'
 import {
-    // Flex,
     Stack,
     Input,
     Button,
@@ -14,6 +13,7 @@ import {
 
 } from '@chakra-ui/react';
 
+// eslint-disable-next-line
 const breakpoints = {
     sm: '30em',
     md: '48em',
@@ -37,11 +37,10 @@ function CheckDNA() {
                 {/* TEXT LANDING */}
                 <Center>
                     <Box pb="2%">
-                        <Text 
+                        <Text
                             fontWeight="bold" 
                             w="auto" 
                             fontSize={{xl:'36px', lg:'33px', md:'29px', sm:'24px'}} 
-                            align="center" 
                             borderBottom="2px" 
                             borderColor="#E45858" 
                             W="10px"
@@ -52,14 +51,14 @@ function CheckDNA() {
                 </Center>
 
                 {/* Input */}
-                    <Grid 
+                    <Grid
                         gap={1} 
                         templateColumns="repeat(14,1fr)" 
                         templateRows="repeat(1,1fr)" 
                     >
                         {/* Row 1 : Text */}
                         <GridItem colSpan={4}>
-                            <Text 
+                            <Text
                                 align="center" 
                                 fontWeight="bold" 
                                 fontSize={{xl:'25px', lg:'24px', md:'20px', sm:'15px'}} 
@@ -70,7 +69,7 @@ function CheckDNA() {
                         </GridItem>
                         <GridItem colSpan={1}/>
                         <GridItem colSpan={4}>
-                            <Text 
+                            <Text
                                 align="center" 
                                 fontWeight="bold" 
                                 fontSize={{xl:'25px', lg:'24px', md:'20px', sm:'15px'}} 
@@ -95,7 +94,7 @@ function CheckDNA() {
                         <GridItem colSpan={4}>
                             <Input
                                 py="20px" 
-                                border='4px' 
+                                border={{md:'4px', sm:'2px'}}
                                 borderColor="#2B2C34" 
                                 borderRadius='30px'
                                 w="100%" 
@@ -110,9 +109,9 @@ function CheckDNA() {
                         </GridItem>
                         <GridItem colSpan={1} />
                         <GridItem colSpan={4}>
-                            <Button 
+                            <Button
                                 py="20px" 
-                                border='4px' 
+                                border={{md:'4px', sm:'2px'}} 
                                 borderColor="#2B2C34" 
                                 borderRadius='30px'
                                 w="100%" 
@@ -127,7 +126,7 @@ function CheckDNA() {
                         <GridItem colSpan={1} />
                         <GridItem colSpan={4}>
                             <Select
-                                border='4px' 
+                                border={{md:'4px', sm:'2px'}} 
                                 borderColor="#2B2C34" 
                                 borderRadius='30px'
                                 h="100%" 
@@ -137,8 +136,8 @@ function CheckDNA() {
                                 placeholder="Choose Disease"
                                 fontSize={{xl:'21px', lg:'15.5px', md:'11px', sm:'9px'}} 
                             /> 
-                            <Text 
-                                fontSize="15px"
+                            <Text
+                                fontSize={{xl:'17px', lg:'14px', md:'11px', sm:'9px'}}
                                 mt="5px"
                             >  
                                 *If the disease cannot be found, please upload the disease's DNA sequence beforehand.
@@ -147,20 +146,20 @@ function CheckDNA() {
                         
                         {/* Submit Button */}
                         <GridItem colSpan={14}>
-                            <Center 
+                            <Center
                                 pt="2.5%" 
                                 pb="2%"
                             >
-                                <Button 
+                                <Button
                                     py="20px" 
                                     h="60px"
                                     w="25%" 
                                     bg="#6246EA" 
-                                    border='4px' 
+                                    border={{md:'4px', sm:'2px'}} 
                                     borderColor="#2B2C34" 
                                     borderRadius='30px'
                                 >
-                                    <Text 
+                                    <Text
                                         color="#FFFFFE" 
                                         fontSize={{xl:'21px', lg:'15.5px', md:'11px', sm:'7'}} 
                                         m={4}
@@ -173,15 +172,15 @@ function CheckDNA() {
 
                         {/* Result */}
                         <GridItem colSpan={14}>
-                            <Box 
+                            <Box
                                 p="2.5%" 
                                 px="3%" 
-                                border="2px" 
+                                border={{md:'2px', sm:'1px'}}
                                 h="auto" 
-                                borderRadius="25px"
+                                borderRadius={{xl:'25px', lg:'20px', md:'15px', sm:'10px'}}
                                 mt="50px"
                             >
-                                <Stack 
+                                <Stack
                                     spacing="1%" 
                                     fontSize={{xl:'18px', lg:'15.5px', md:'13px', sm:'11px'}}
                                 >
