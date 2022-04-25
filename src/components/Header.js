@@ -60,10 +60,26 @@ const LinkPage = ({currentPage, thisPage, linkPage}) => {
 const Links = ({currentPage}) => {
   return (
     <HStack spacing='30px'>
-      <LinkPage currentPage={currentPage} thisPage='Home' linkPage='/'/>
-      <LinkPage currentPage={currentPage} thisPage='Test' linkPage='/check-dna'/>
-      <LinkPage currentPage={currentPage} thisPage='Search' linkPage='/search-dna'/>
-      <LinkPage currentPage={currentPage} thisPage='Upload' linkPage='/upload-dna'/>
+      <LinkPage 
+        currentPage={currentPage} 
+        thisPage='Home' 
+        linkPage='/'
+      />
+      <LinkPage 
+        currentPage={currentPage} 
+        thisPage='Test' 
+        linkPage='/check-dna'
+      />
+      <LinkPage 
+        currentPage={currentPage} 
+        thisPage='Search' 
+        linkPage='/search-dna'
+      />
+      <LinkPage 
+        currentPage={currentPage} 
+        thisPage='Upload' 
+        linkPage='/upload-dna'
+      />
     </HStack>
   )
 }
@@ -74,7 +90,11 @@ function Header({currentPage}) {
 
   return (
       <Box bg={"#FFFFFE"} px="10%">
-        <Flex h="60px" alignItems={'center'} justifyContent={'right'}>
+        <Flex 
+          h="60px" 
+          alignItems={'center'} 
+          justifyContent={'right'}
+        >
           {isOpen ? (
             <Box>
               <Stack as={'nav'} spacing={4}>
@@ -93,7 +113,8 @@ function Header({currentPage}) {
             <HStack
               as={'nav'}
               spacing={8}
-              display={{ base: 'none', md: 'flex' }}>
+              display={{ base: 'none', md: 'flex' }}
+            >
               <Links currentPage={currentPage}/>
             </HStack>
           </HStack>
