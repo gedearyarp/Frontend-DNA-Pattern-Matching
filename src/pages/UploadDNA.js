@@ -32,7 +32,7 @@ function UploadDNA() {
             </Box>
             
             {/* CONTENT */}
-            <Stack  pr="10%" pl="10%" pt="4%" h="87vh">
+            <Stack  pr="10%" pl="10%" pt="3%" h="87vh">
 
                 {/* TEXT LANDING */}
                 <Center>

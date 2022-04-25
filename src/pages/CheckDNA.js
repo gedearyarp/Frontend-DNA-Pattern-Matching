@@ -172,13 +172,25 @@ function CheckDNA() {
 
                         {/* Result */}
                         <GridItem colSpan={14}>
+                            <Box >
+                                <Text
+                                    fontWeight="semibold" 
+                                    w="auto" 
+                                    fontSize={{xl:'30px', lg:'27px', md:'23px', sm:'18px'}} 
+                                    borderBottom="2px" 
+                                    borderColor="#E45858" 
+                                    W="10px"
+                                >
+                                    Test Result
+                                </Text>
+                            </Box>
                             <Box
-                                p="2.5%" 
+                                py="2.5%" 
                                 px="3%" 
                                 border={{md:'2px', sm:'1px'}}
                                 h="auto" 
                                 borderRadius={{xl:'25px', lg:'20px', md:'15px', sm:'10px'}}
-                                mt="50px"
+                                mt="20px"
                             >
                                 <Stack
                                     spacing="1%" 

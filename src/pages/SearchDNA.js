@@ -31,7 +31,7 @@ function UploadDNA() {
             </Box>
             
             {/* CONTENT */}
-            <Stack  pr="10%" pl="10%" pt="2%" h="87vh">
+            <Stack  pr="10%" pl="10%" pt="3%" h="87vh">
 
                 {/* TEXT LANDING */}
                 <Center>
@@ -44,7 +44,7 @@ function UploadDNA() {
                             borderColor="#E45858" 
                             W="10px"
                         >
-                            TEST HISTORY
+                            SEARCH TEST HISTORY
                         </Text>
                     </Box>
                 </Center>
@@ -73,15 +73,6 @@ function UploadDNA() {
                             fontWeight="normal"
                             fontStyle="italic"
                             fontSize={{xl:'15px', lg:'11px', md:'9px', sm:'7px'}} />
-                        <Center w="auto" px="3%" fontSize={{xl:'13.5px', lg:'10.5px', md:'8.5px', sm:'6.5px'}} >
-                            <pre>
-                                -------------------------------------- <br/>
-                                | example : 14 April 2022-HIV     OR | <br/>
-                                |           14 April 2022         OR | <br/>
-                                |           HIV                      | <br/>
-                                --------------------------------------
-                            </pre>
-                        </Center>
                     </GridItem>
                     <GridItem colSpan={3} />
                     
@@ -113,7 +104,7 @@ function UploadDNA() {
                 </Grid>
 
                 {/* RECENT RESULT */}
-                <Box pt="1%">
+                <Box py="1%">
                     <Text
                         fontWeight="semibold" 
                         w="auto" 
@@ -140,14 +131,10 @@ function UploadDNA() {
                     >   
                         {/* NUMBER */}
                         <Text
-                            lineHeight={{xl:'39px', lg:'36px', md:'29px', sm:'24px'}}
-                            w={{xl:'40px', lg:'37px', md:'30px', sm:'25px'}}
-                            h={{xl:'40px', lg:'37px', md:'30px', sm:'25px'}}
-                            borderRadius={{xl:'40px', lg:'37px', md:'30px', sm:'25px'}}
-                            border="2px" align="center" pos="absolute" left={{xl:'1%', lg:'0.7%', md:'0.4%', sm:'0%'}}
-                            fontWeight="bold" fontSize={{xl:'20px', lg:'17.5px', md:'14px', sm:'11px'}}
+                            align="center" pos="absolute" left={{xl:'1%', lg:'0.7%', md:'0.4%', sm:'0%'}}
+                            fontWeight="bold" fontSize={{xl:'28px', lg:'17.5px', md:'14px', sm:'11px'}}
                         >
-                            777
+                            001
                         </Text>
 
                         {/* RESULT CONTENT */}
@@ -158,6 +145,7 @@ function UploadDNA() {
                         >
                             <Text
                                 fontWeight="normal"
+                                color="#515151"
                             >
                                 Jamaludin Siregar
                             </Text>
@@ -169,26 +157,30 @@ function UploadDNA() {
                             </Text>
                             <Text
                                 fontWeight="semibold"
-                                fontStyle="italic"
-                                color="#606985"
+                                color="#515151"
                             >
                                 14 April 2022 
                             </Text>
                         </Stack>
                         <Stack
                             spacing="0%"
-                            pos="absolute" right="10%"
-                            pt="1.2%"
-                            fontSize={{xl:'16px', lg:'13px', md:'10px', sm:'8px'}}
+                            pos="absolute" 
+                            right="1.5%"
                         >
+                            <Text 
+                                fontWeight="medium"
+                                alignSelf="flex-end"
+                                fontSize={{xl:'15px', lg:'12px', md:'10px', sm:'8px'}}
+                            >
+                                88% Similarity
+                            </Text>
                             <Text
-                                fontWeight="semibold"
+                                fontWeight="bold"
+                                alignSelf="flex-end"
                                 color={{md:"#6246EA", sm:"#E45858"}} // Ganti ini jadi if positive : #6246EA, if neg : #E45858
+                                fontSize={{xl:'19px', lg:'16px', md:'12px', sm:'10px'}}
                             >
                                 Positive
-                            </Text>
-                            <Text>
-                                88%
                             </Text>
                         </Stack>
                     </Stack>
