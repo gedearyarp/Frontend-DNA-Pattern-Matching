@@ -1,7 +1,4 @@
 import React from 'react';
-import {
-    Link
-} from "react-router-dom";
 import dnaLogo from '../images/dnalogoresize.png';
 import HomeButton from '../components/HomeButton';
 import Footer from '../components/Footer';
@@ -13,6 +10,9 @@ import {
     Text,
     Flex,
 } from '@chakra-ui/react';
+import {
+    Link
+} from "react-router-dom";
 
 function Home() {
     return (

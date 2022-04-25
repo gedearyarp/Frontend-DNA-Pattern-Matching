@@ -6,12 +6,14 @@ import {
 } from '@chakra-ui/react';
 
 function ResultBox({ cnumber, cname, cdisease, cdate, csimilarity, cverdict }) {
+    const verdictColor = cverdict === 'Positive' ? '#6246ea' : '#e45858';
+
     return (
         <Box
             m="50px"
             p="1%"
             border="2px"
-            borderColor="#6246EA"
+            borderColor={verdictColor}
             borderRadius={{ xl: '25px', lg: '20px', md: '15px', sm: '10px' }}
             h="auto"
         >
@@ -19,15 +21,12 @@ function ResultBox({ cnumber, cname, cdisease, cdate, csimilarity, cverdict }) {
                 spacing="0%"
                 pos="relative"
             >
-                {/* NUMBER */}
                 <Text
                     align="center" pos="absolute" left={{ xl: '1%', lg: '0.7%', md: '0.4%', sm: '0%' }}
                     fontWeight="bold" fontSize={{ xl: '28px', lg: '17.5px', md: '14px', sm: '11px' }}
                 >
                     {cnumber}
                 </Text>
-
-                {/* RESULT CONTENT */}
                 <Stack
                     spacing="0%" pl="7%"
                     fontSize={{ xl: '15px', lg: '12px', md: '10px', sm: '8px' }}
@@ -67,7 +66,7 @@ function ResultBox({ cnumber, cname, cdisease, cdate, csimilarity, cverdict }) {
                     <Text
                         fontWeight="bold"
                         alignSelf="flex-end"
-                        color={{ md: "#6246EA", sm: "#E45858" }} // Ganti ini jadi if positive : #6246EA, if neg : #E45858
+                        color={verdictColor}
                         fontSize={{ xl: '19px', lg: '16px', md: '12px', sm: '10px' }}
                     >
                         {cverdict}

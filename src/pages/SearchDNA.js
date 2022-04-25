@@ -1,29 +1,18 @@
 import React from 'react';
 import Header from '../components/Header'
+import SubmitButton from '../components/SubmitButton';
+import ResultBox from '../components/ResultBox';
+import Title from '../components/Title';
 import {
     Stack,
     Input,
-    Button,
     Center,
     Box,
     Text,
     Grid,
     GridItem,
-    HStack,
-
+    HStack
 } from '@chakra-ui/react';
-import SubmitButton from '../components/SubmitButton';
-import ResultBox from '../components/ResultBox';
-import Title from '../components/Title';
-
-// eslint-disable-next-line
-const breakpoints = {
-    sm: '30em',
-    md: '48em',
-    lg: '62em',
-    xl: '80em',
-    '2xl': '96em',
-}
 
 function UploadDNA() {
     return (
@@ -33,7 +22,7 @@ function UploadDNA() {
             </Box>
             <Stack pr="10%" pl="10%" pt="3%" h="87vh">
                 <Center>
-                    <Title ctext="SEARCH TEST HISTORY"/>
+                    <Title ctext="SEARCH TEST HISTORY" />
                 </Center>
                 <Grid
                     gap={1}
@@ -55,7 +44,7 @@ function UploadDNA() {
                             textAlign="center"
                             fontWeight="normal"
                             fontStyle="italic"
-                            fontSize={{ xl: '15px', lg: '11px', md: '9px', sm: '7px' }} 
+                            fontSize={{ xl: '15px', lg: '11px', md: '9px', sm: '7px' }}
                         />
                         <Center mt="6px">
                             <HStack >
@@ -74,7 +63,7 @@ function UploadDNA() {
                             pt="1%"
                             pb="1%"
                         >
-                            <SubmitButton ctext="SEARCH"/>
+                            <SubmitButton ctext="SEARCH" />
                         </Center>
                     </GridItem>
                 </Grid>
@@ -97,16 +86,16 @@ function UploadDNA() {
                         </HStack>
                     </Text>
                 </Box>
-                <ResultBox cnumber="1" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive"/>
-                <ResultBox cnumber="2" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive"/>
-                <ResultBox cnumber="3" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive"/>
-                <ResultBox cnumber="4" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive"/>
-                <ResultBox cnumber="5" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive"/>
-                <ResultBox cnumber="6" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive"/>
-                <ResultBox cnumber="7" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive"/>
-                <ResultBox cnumber="8" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive"/>
-                <ResultBox cnumber="9" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive"/>
-                <ResultBox cnumber="10" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive"/>
+                <ResultBox cnumber="1" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive" />
+                <ResultBox cnumber="2" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Negative" />
+                <ResultBox cnumber="3" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Negative" />
+                <ResultBox cnumber="4" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive" />
+                <ResultBox cnumber="5" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Negative" />
+                <ResultBox cnumber="6" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive" />
+                <ResultBox cnumber="7" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Negative" />
+                <ResultBox cnumber="8" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive" />
+                <ResultBox cnumber="9" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Negative" />
+                <ResultBox cnumber="10" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Negative" />
             </Stack>
         </Box>
     )

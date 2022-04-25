@@ -1,4 +1,6 @@
 import React from 'react';
+import SubmitButton from '../components/SubmitButton';
+import Title from '../components/Title';
 import Header from '../components/Header'
 import {
     Stack,
@@ -10,10 +12,8 @@ import {
     Text,
     Grid,
     GridItem,
-
+    HStack
 } from '@chakra-ui/react';
-import SubmitButton from '../components/SubmitButton';
-import Title from '../components/Title';
 
 // eslint-disable-next-line
 const breakpoints = {
@@ -88,6 +88,7 @@ function CheckDNA() {
                             fontWeight="normal"
                             fontSize={{ xl: '21px', lg: '15.5px', md: '11px', sm: '9px' }}
                         />
+                        
                     </GridItem>
                     <GridItem colSpan={1} />
                     <GridItem colSpan={4}>
@@ -104,6 +105,12 @@ function CheckDNA() {
                                 Upload file
                             </Text>
                         </Button>
+                        <Text
+                            fontSize={{ xl: '17px', lg: '14px', md: '11px', sm: '9px' }}
+                            mt="5px"
+                        >
+                            *Only .txt file
+                        </Text>
                     </GridItem>
                     <GridItem colSpan={1} />
                     <GridItem colSpan={4}>
@@ -147,7 +154,14 @@ function CheckDNA() {
                                 borderColor="#E45858"
                                 W="10px"
                             >
-                                Test Result
+                                <HStack>
+                                    <Text color="#6246ea">
+                                        Test
+                                    </Text>
+                                    <Text color="#2b2c34">
+                                        Result
+                                    </Text>
+                                </HStack>
                             </Text>
                         </Box>
                         <Box
@@ -158,7 +172,7 @@ function CheckDNA() {
                             borderRadius={{ xl: '25px', lg: '20px', md: '15px', sm: '10px' }}
                             mt="20px"
                         >
-                            <Stack
+                            <Stack 
                                 spacing="1%"
                                 fontSize={{ xl: '18px', lg: '15.5px', md: '13px', sm: '11px' }}
                             >

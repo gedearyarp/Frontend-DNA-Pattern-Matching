@@ -1,5 +1,7 @@
 import React from 'react';
-import Header from '../components/Header'
+import Header from '../components/Header';
+import SubmitButton from '../components/SubmitButton';
+import Title from '../components/Title';
 import {
     Stack,
     Input,
@@ -10,17 +12,6 @@ import {
     Grid,
     GridItem,
 } from '@chakra-ui/react';
-import SubmitButton from '../components/SubmitButton';
-import Title from '../components/Title';
-
-// eslint-disable-next-line
-const breakpoints = {
-    sm: '30em',
-    md: '48em',
-    lg: '62em',
-    xl: '80em',
-    '2xl': '96em',
-}
 
 function UploadDNA() {
     return (
@@ -38,7 +29,7 @@ function UploadDNA() {
                 {/* TEXT LANDING */}
                 <Center>
                     <Box pb="5%">
-                        <Title ctext="NEW DISEASE UPLOAD"/>
+                        <Title ctext="NEW DISEASE UPLOAD" />
                     </Box>
                 </Center>
 
@@ -106,6 +97,12 @@ function UploadDNA() {
                                 Upload file
                             </Text>
                         </Button>
+                        <Text
+                            fontSize={{ xl: '17px', lg: '14px', md: '11px', sm: '9px' }}
+                            mt="5px"
+                        >
+                            *Only .txt file
+                        </Text>
                     </GridItem>
                     <GridItem colSpan={1} />
 
@@ -115,7 +112,7 @@ function UploadDNA() {
                             pt="2.5%"
                             pb="2%"
                         >
-                            <SubmitButton ctext="SUBMIT"/>
+                            <SubmitButton ctext="SUBMIT" />
                         </Center>
                     </GridItem>
                 </Grid>
