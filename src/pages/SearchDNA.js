@@ -44,7 +44,7 @@ function UploadDNA() {
                             borderColor="#E45858" 
                             W="10px"
                         >
-                            TEST History
+                            TEST HISTORY
                         </Text>
                     </Box>
                 </Center>
@@ -112,7 +112,7 @@ function UploadDNA() {
                     </GridItem>
                 </Grid>
 
-                {/* SEARCH RESULT */}
+                {/* RECENT RESULT */}
                 <Box pt="1%">
                     <Text
                         fontWeight="semibold" 
@@ -125,47 +125,72 @@ function UploadDNA() {
                         Recent Test
                     </Text>
                 </Box>
+
+                {/* SEARCH RESULT */}
                 <Box
-                    p="1.2%" 
-                    px="3.5%" 
+                    p="1%" 
                     border="2px"
                     borderColor="#6246EA"
                     borderRadius={{xl:'25px', lg:'20px', md:'15px', sm:'10px'}}
                     h="auto" 
-                    mt="50px"
-                    
                 >
                     <Stack
                         spacing="0%" 
-                        fontSize={{xl:'18px', lg:'15.5px', md:'13px', sm:'11px'}}
                         pos="relative"
-                    >
+                    >   
+                        {/* NUMBER */}
                         <Text
-                            pos="absolute" left="-2.2%" fontWeight="bold"
-                            fontSize={{xl:'21px', lg:'18.5px', md:'15px', sm:'13px'}}
+                            lineHeight={{xl:'39px', lg:'36px', md:'29px', sm:'24px'}}
+                            w={{xl:'40px', lg:'37px', md:'30px', sm:'25px'}}
+                            h={{xl:'40px', lg:'37px', md:'30px', sm:'25px'}}
+                            borderRadius={{xl:'40px', lg:'37px', md:'30px', sm:'25px'}}
+                            border="2px" align="center" pos="absolute" left={{xl:'1%', lg:'0.7%', md:'0.4%', sm:'0%'}}
+                            fontWeight="bold" fontSize={{xl:'20px', lg:'17.5px', md:'14px', sm:'11px'}}
                         >
-                            1
+                            777
                         </Text>
-                        <Text
-                            as="u"
-                            align="center" fontWeight="semibold"
-                            fontSize={{xl:'19px', lg:'16.5px', md:'13px', sm:'11px'}}
-                            fontStyle="italic"
+
+                        {/* RESULT CONTENT */}
+                        <Stack
+                            spacing="0%" pl="7%"
+                            fontSize={{xl:'15px', lg:'12px', md:'10px', sm:'8px'}}
+                            color="#2b2c34"
                         >
-                            14 April 2022 
-                        </Text>
-                        <Text>
-                            Username                   : Jamal
-                        </Text>
-                        <Text>
-                            Disease Prediction         : Kanker
-                        </Text>
-                        <Text>
-                            Similarity Percentage      : 100%
-                        </Text>
-                        <Text>
-                            Checking Result            : Positive
-                        </Text>
+                            <Text
+                                fontWeight="normal"
+                            >
+                                Jamaludin Siregar
+                            </Text>
+                            <Text
+                                fontSize={{xl:'19px', lg:'16px', md:'12px', sm:'10px'}}
+                                fontWeight="bold"
+                            >
+                                Cancer Cervix
+                            </Text>
+                            <Text
+                                fontWeight="semibold"
+                                fontStyle="italic"
+                                color="#606985"
+                            >
+                                14 April 2022 
+                            </Text>
+                        </Stack>
+                        <Stack
+                            spacing="0%"
+                            pos="absolute" right="10%"
+                            pt="1.2%"
+                            fontSize={{xl:'16px', lg:'13px', md:'10px', sm:'8px'}}
+                        >
+                            <Text
+                                fontWeight="semibold"
+                                color={{md:"#6246EA", sm:"#E45858"}} // Ganti ini jadi if positive : #6246EA, if neg : #E45858
+                            >
+                                Positive
+                            </Text>
+                            <Text>
+                                88%
+                            </Text>
+                        </Stack>
                     </Stack>
                 </Box>
             </Stack>
