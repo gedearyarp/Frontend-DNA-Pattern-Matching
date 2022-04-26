@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import SubmitButton from '../components/SubmitButton';
 import Title from '../components/Title';
 import Header from '../components/Header'
@@ -15,18 +16,22 @@ import {
     HStack
 } from '@chakra-ui/react';
 
-// eslint-disable-next-line
-const breakpoints = {
-    sm: '30em',
-    md: '48em',
-    lg: '62em',
-    xl: '80em',
-    '2xl': '96em',
-}
-
 function CheckDNA() {
     const [name, setName] = useState("");
+    const [diseaseList, setDiseaseList] = useState([]);
+    const [disease, setDisease] = useState("");
     
+    useEffect(() => {
+        axios.get(`https://be-prasmanan-stima-3.herokuapp.com/penyakit`)
+            .then(res => {
+                setDiseaseList(res.data.data);
+            })
+    }, []);
+
+    const handleDiseaseSelect = (e) => {
+        setDisease(e.target.value)
+    }
+
     return (
         <Box>
             <Box borderBottom="1px" borderColor="#2B2C34">
@@ -127,7 +132,16 @@ function CheckDNA() {
                             variant='filled'
                             placeholder="Choose Disease"
                             fontSize={{ xl: '21px', lg: '15.5px', md: '11px', sm: '9px' }}
-                        />
+                            onChange={handleDiseaseSelect}
+                        >
+                            {
+                                diseaseList.map((disease, index) => {
+                                    return (
+                                        <option value={disease.namaPenyakit}>{disease.namaPenyakit}</option>
+                                    )
+                                })
+                            }
+                        </Select>
                         <Text
                             fontSize={{ xl: '17px', lg: '14px', md: '11px', sm: '9px' }}
                             mt="5px"

@@ -15,26 +15,37 @@ import {
     HStack
 } from '@chakra-ui/react';
 
-function UploadDNA() {
+function SearchDNA() {
     const [searchInput, setSearchInput] = useState("");
     const [result, setResult] = useState([]);
+    const [onLoading, setOnLoading] = useState(false);
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     useEffect(() => {
-        axios.post(`https://be-prasmanan-stima-3.herokuapp.com/search?q=`)
-            .then(res => {
-                console.log(res)
-                setResult(res.data.data);
-            })
+        const fetchAllHistory = async () => {
+            setOnLoading(true);
+            await axios.post(`https://be-prasmanan-stima-3.herokuapp.com/search?q=`)
+                .then(res => {
+                    setResult(res.data.data);
+                })
+            setOnLoading(false);
+        }
+        fetchAllHistory();
     }, []);
 
     const handleSearch = () => {
-        let q = searchInput.trim()
-        axios.post(`https://be-prasmanan-stima-3.herokuapp.com/search?q=${q}`)
-            .then(res => {
-                setResult(res.data.data);
-            })
+        const fetchHistory = async () => {
+            setOnLoading(true);
+            let q = searchInput.trim()
+            await axios.post(`https://be-prasmanan-stima-3.herokuapp.com/search?q=${q}`)
+                .then(res => {
+                    setResult(res.data.data);
+                })
+            setOnLoading(false);
+        }
+        fetchHistory();
     }
+
     return (
         <Box>
             <Box
@@ -118,25 +129,39 @@ function UploadDNA() {
                         </HStack>
                     </Text>
                 </Box>
-                {
-                    result && result.map((item, index) => {
-                        let tanggal = new Date(parseInt(item.tanggal));
-                        const strTanggal = tanggal.getDate() + ' ' + (monthNames[tanggal.getMonth()]) + ' ' + tanggal.getFullYear();
-                        return (
-                            <ResultBox
-                                number={index+1}
-                                name={item.namaPengguna}
-                                disease={item.namaPenyakit}
-                                date={strTanggal}
-                                similarity={item.similarity}
-                                verdict={item.status ? "Positive" : "Negative"}
-                            />
-                        )
-                    })
-                }
+                { !onLoading ? (
+                    <>
+                        {
+                            result && result.map((item, index) => {
+                                let tanggal = new Date(parseInt(item.tanggal));
+                                const strTanggal = tanggal.getDate() + ' ' + (monthNames[tanggal.getMonth()]) + ' ' + tanggal.getFullYear();
+                                return (
+                                    <ResultBox
+                                        number={index+1}
+                                        name={item.namaPengguna}
+                                        disease={item.namaPenyakit}
+                                        date={strTanggal}
+                                        similarity={item.similarity}
+                                        verdict={item.status ? "Positive" : "Negative"}
+                                    />
+                                )
+                            })
+                        }
+                    </>
+                ) : (
+                    <Center >
+                        <Text
+                            fontSize={{ xl: '30px', lg: '27px', md: '23px', sm: '18px' }}
+                            color="#2b2c34"
+                            fontWeight="semibold"
+                        >
+                            Fetching some data... Please wait...
+                        </Text>
+                    </Center>
+                )}
             </Stack>
         </Box>
     )
 }
 
-export default UploadDNA;
+export default SearchDNA;
