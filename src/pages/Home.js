@@ -53,15 +53,15 @@ function Home() {
                     <Center>
                         <Stack spacing="15px">
                             <Link to="/check-dna">
-                                <HomeButton ctext="Test Your DNA" ccolor="#E45858" />
+                                <HomeButton text="Test Your DNA" color="#E45858" />
                             </Link>
 
                             <Link to="/search-dna">
-                                <HomeButton ctext="Search History" ccolor="#6246EA" />
+                                <HomeButton text="Search History" color="#6246EA" />
                             </Link>
 
                             <Link to="/upload-dna">
-                                <HomeButton ctext="Upload DNA Disease" ccolor="#6246EA" />
+                                <HomeButton text="Upload DNA Disease" color="#6246EA" />
                             </Link>
                         </Stack>
                     </Center>

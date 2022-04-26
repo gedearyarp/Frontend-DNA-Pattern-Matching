@@ -5,7 +5,7 @@ import {
     Text
 } from '@chakra-ui/react';
 
-function Footer({ ctext, ccolor }) {
+function Footer() {
     return (
         <Center >
             <Box position="fixed" bottom="20px">

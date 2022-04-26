@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from '../components/Header';
 import SubmitButton from '../components/SubmitButton';
 import Title from '../components/Title';
@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 
 function UploadDNA() {
+    const [disease, setDisease] = useState("");
     return (
 
         <Box>
@@ -29,7 +30,7 @@ function UploadDNA() {
                 {/* TEXT LANDING */}
                 <Center>
                     <Box pb="5%">
-                        <Title ctext="NEW DISEASE UPLOAD" />
+                        <Title text="NEW DISEASE UPLOAD" />
                     </Box>
                 </Center>
 
@@ -80,6 +81,7 @@ function UploadDNA() {
                             textAlign="center"
                             fontWeight="normal"
                             fontSize={{ xl: '21px', lg: '15.5px', md: '11px', sm: '9px' }}
+                            onChange={(e) => setDisease(e.target.value)}
                         />
                     </GridItem>
                     <GridItem colSpan={2} />
@@ -112,7 +114,7 @@ function UploadDNA() {
                             pt="2.5%"
                             pb="2%"
                         >
-                            <SubmitButton ctext="SUBMIT" />
+                            <SubmitButton text="SUBMIT" />
                         </Center>
                     </GridItem>
                 </Grid>

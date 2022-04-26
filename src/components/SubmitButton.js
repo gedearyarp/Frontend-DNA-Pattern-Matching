@@ -3,7 +3,7 @@ import {
     Text,
     Button
 } from '@chakra-ui/react';
-function SubmitButton({ ctext }) {
+function SubmitButton({ text }) {
     return (
         <Button
             py="20px"
@@ -19,7 +19,7 @@ function SubmitButton({ ctext }) {
                 fontSize={{ xl: '21px', lg: '15.5px', md: '11px', sm: '7' }}
                 m={4}
             >
-                {ctext}
+                {text}
             </Text>
         </Button>
     )

@@ -14,7 +14,6 @@ import {
 } from '@chakra-ui/icons';
 
 const LinkPage = ({currentPage, thisPage, linkPage}) => {
-  console.log(currentPage, thisPage, linkPage)
   return (
     <>
       {(currentPage === thisPage) ? (

@@ -4,7 +4,7 @@ import {
     Text
 } from '@chakra-ui/react';
 
-function Title({ ctext }) {
+function Title({ text }) {
     return (
         <Box pb="1.5%">
             <Text
@@ -15,7 +15,7 @@ function Title({ ctext }) {
                 borderColor="#E45858"
                 W="10px"
             >
-                {ctext}
+                {text}
             </Text>
         </Box>
     )

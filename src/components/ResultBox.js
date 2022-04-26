@@ -5,8 +5,8 @@ import {
     Text
 } from '@chakra-ui/react';
 
-function ResultBox({ cnumber, cname, cdisease, cdate, csimilarity, cverdict }) {
-    const verdictColor = cverdict === 'Positive' ? '#6246ea' : '#e45858';
+function ResultBox({ number, name, disease, date, similarity, verdict }) {
+    const verdictColor = verdict === 'Positive' ? '#6246ea' : '#e45858';
 
     return (
         <Box
@@ -25,7 +25,7 @@ function ResultBox({ cnumber, cname, cdisease, cdate, csimilarity, cverdict }) {
                     align="center" pos="absolute" left={{ xl: '1%', lg: '0.7%', md: '0.4%', sm: '0%' }}
                     fontWeight="bold" fontSize={{ xl: '28px', lg: '17.5px', md: '14px', sm: '11px' }}
                 >
-                    {cnumber}
+                    {number}
                 </Text>
                 <Stack
                     spacing="0%" pl="7%"
@@ -36,19 +36,19 @@ function ResultBox({ cnumber, cname, cdisease, cdate, csimilarity, cverdict }) {
                         fontWeight="normal"
                         color="#515151"
                     >
-                        {cname}
+                        {name}
                     </Text>
                     <Text
                         fontSize={{ xl: '19px', lg: '16px', md: '12px', sm: '10px' }}
                         fontWeight="bold"
                     >
-                        {cdisease}
+                        {disease}
                     </Text>
                     <Text
                         fontWeight="semibold"
                         color="#515151"
                     >
-                        {cdate}
+                        {date}
                     </Text>
                 </Stack>
                 <Stack
@@ -61,7 +61,7 @@ function ResultBox({ cnumber, cname, cdisease, cdate, csimilarity, cverdict }) {
                         alignSelf="flex-end"
                         fontSize={{ xl: '15px', lg: '12px', md: '10px', sm: '8px' }}
                     >
-                        {csimilarity}% Similarity
+                        {similarity}% Similarity
                     </Text>
                     <Text
                         fontWeight="bold"
@@ -69,7 +69,7 @@ function ResultBox({ cnumber, cname, cdisease, cdate, csimilarity, cverdict }) {
                         color={verdictColor}
                         fontSize={{ xl: '19px', lg: '16px', md: '12px', sm: '10px' }}
                     >
-                        {cverdict}
+                        {verdict}
                     </Text>
                 </Stack>
             </Stack>

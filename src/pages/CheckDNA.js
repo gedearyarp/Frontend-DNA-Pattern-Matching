@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import SubmitButton from '../components/SubmitButton';
 import Title from '../components/Title';
 import Header from '../components/Header'
@@ -25,6 +25,8 @@ const breakpoints = {
 }
 
 function CheckDNA() {
+    const [name, setName] = useState("");
+    
     return (
         <Box>
             <Box borderBottom="1px" borderColor="#2B2C34">
@@ -33,7 +35,7 @@ function CheckDNA() {
             <Stack pr="10%" pl="10%" pt="3%" h="87vh">
                 <Center>
                     <Box pb="2%">
-                        <Title ctext="DNA TESTING"/>
+                        <Title text="DNA TESTING"/>
                     </Box>
                 </Center>
                 <Grid
@@ -82,11 +84,12 @@ function CheckDNA() {
                             w="100%"
                             bg="#D1D1E9"
                             variant='filled'
-                            color="#515151"
                             placeholder="Your name here"
                             textAlign="center"
                             fontWeight="normal"
                             fontSize={{ xl: '21px', lg: '15.5px', md: '11px', sm: '9px' }}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                         />
                         
                     </GridItem>
@@ -139,7 +142,7 @@ function CheckDNA() {
                             pt="2.5%"
                             pb="2%"
                         >
-                            <SubmitButton ctext="SUBMIT"/>
+                            <SubmitButton text="SUBMIT"/>
                         </Center>
                     </GridItem>
 

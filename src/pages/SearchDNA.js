@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from '../components/Header'
 import SubmitButton from '../components/SubmitButton';
 import ResultBox from '../components/ResultBox';
@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react';
 
 function UploadDNA() {
+    const [searchInput, setSearchInput] = useState("");
     return (
         <Box>
             <Box borderBottom="1px" borderColor="#2B2C34">
@@ -22,7 +23,7 @@ function UploadDNA() {
             </Box>
             <Stack pr="10%" pl="10%" pt="3%" h="87vh">
                 <Center>
-                    <Title ctext="SEARCH TEST HISTORY" />
+                    <Title text="SEARCH TEST HISTORY" />
                 </Center>
                 <Grid
                     gap={1}
@@ -45,6 +46,7 @@ function UploadDNA() {
                             fontWeight="normal"
                             fontStyle="italic"
                             fontSize={{ xl: '15px', lg: '11px', md: '9px', sm: '7px' }}
+                            onChange={(e) => setSearchInput(e.target.value)}
                         />
                         <Center mt="6px">
                             <HStack >
@@ -63,7 +65,7 @@ function UploadDNA() {
                             pt="1%"
                             pb="1%"
                         >
-                            <SubmitButton ctext="SEARCH" />
+                            <SubmitButton text="SEARCH" />
                         </Center>
                     </GridItem>
                 </Grid>
@@ -86,16 +88,14 @@ function UploadDNA() {
                         </HStack>
                     </Text>
                 </Box>
-                <ResultBox cnumber="1" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive" />
-                <ResultBox cnumber="2" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Negative" />
-                <ResultBox cnumber="3" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Negative" />
-                <ResultBox cnumber="4" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive" />
-                <ResultBox cnumber="5" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Negative" />
-                <ResultBox cnumber="6" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive" />
-                <ResultBox cnumber="7" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Negative" />
-                <ResultBox cnumber="8" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Positive" />
-                <ResultBox cnumber="9" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Negative" />
-                <ResultBox cnumber="10" cname="Kevin Julio" cdisease="Cancer Cervix" cdate="17 Januari 2022" csimilarity="88" cverdict="Negative" />
+                <ResultBox number="1" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Positive" />
+                <ResultBox number="2" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Negative" />
+                <ResultBox number="3" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Negative" />
+                <ResultBox number="4" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Positive" />
+                <ResultBox number="5" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Positive" />
+                <ResultBox number="6" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Positive" />
+                <ResultBox number="7" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Positive" />
+                <ResultBox number="8" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Positive" />
             </Stack>
         </Box>
     )
