@@ -8,7 +8,10 @@ import {
 function Footer() {
     return (
         <Center >
-            <Box position="fixed" bottom="20px">
+            <Box   
+                position="fixed" 
+                bottom="20px"
+            >
                 <Text align="center">
                     © 2022 prasmanan.
                 </Text>

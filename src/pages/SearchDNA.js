@@ -18,10 +18,18 @@ function UploadDNA() {
     const [searchInput, setSearchInput] = useState("");
     return (
         <Box>
-            <Box borderBottom="1px" borderColor="#2B2C34">
+            <Box 
+                borderBottom="1px" 
+                borderColor="#2B2C34"
+            >
                 <Header currentPage='Search' />
             </Box>
-            <Stack pr="10%" pl="10%" pt="3%" h="87vh">
+            <Stack 
+                pr="10%" 
+                pl="10%" 
+                t="3%" 
+                h="87vh"
+            >
                 <Center>
                     <Title text="SEARCH TEST HISTORY" />
                 </Center>
