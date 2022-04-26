@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Header from '../components/Header'
 import SubmitButton from '../components/SubmitButton';
 import ResultBox from '../components/ResultBox';
@@ -16,18 +17,36 @@ import {
 
 function UploadDNA() {
     const [searchInput, setSearchInput] = useState("");
+    const [result, setResult] = useState([]);
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    useEffect(() => {
+        axios.post(`https://be-prasmanan-stima-3.herokuapp.com/search?q=`)
+            .then(res => {
+                console.log(res)
+                setResult(res.data.data);
+            })
+    }, []);
+
+    const handleSearch = () => {
+        let q = searchInput.trim()
+        axios.post(`https://be-prasmanan-stima-3.herokuapp.com/search?q=${q}`)
+            .then(res => {
+                setResult(res.data.data);
+            })
+    }
     return (
         <Box>
-            <Box 
-                borderBottom="1px" 
+            <Box
+                borderBottom="1px"
                 borderColor="#2B2C34"
             >
                 <Header currentPage='Search' />
             </Box>
-            <Stack 
-                pr="10%" 
-                pl="10%" 
-                t="3%" 
+            <Stack
+                pr="10%"
+                pl="10%"
+                pt="3%"
                 h="87vh"
             >
                 <Center>
@@ -49,7 +68,7 @@ function UploadDNA() {
                             bg="#D1D1E9"
                             variant='filled'
                             color="#515151"
-                            placeholder="keyword : date-disease     OR     date     OR     disease"
+                            placeholder="keyword : date disease     OR     date     OR     disease"
                             textAlign="center"
                             fontWeight="normal"
                             fontStyle="italic"
@@ -62,7 +81,7 @@ function UploadDNA() {
                                     Example:
                                 </Text>
                                 <Text color="#2b2c34">
-                                    14 Juni 2020 - Flu, 17-08-2022, Batuk Pilek
+                                    14 April 2022 Flu, 17-04-2022, Batuk
                                 </Text>
                             </HStack>
                         </Center>
@@ -73,7 +92,10 @@ function UploadDNA() {
                             pt="1%"
                             pb="1%"
                         >
-                            <SubmitButton text="SEARCH" />
+                            <SubmitButton
+                                text="SEARCH"
+                                setValue={handleSearch}
+                            />
                         </Center>
                     </GridItem>
                 </Grid>
@@ -96,14 +118,22 @@ function UploadDNA() {
                         </HStack>
                     </Text>
                 </Box>
-                <ResultBox number="1" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Positive" />
-                <ResultBox number="2" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Negative" />
-                <ResultBox number="3" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Negative" />
-                <ResultBox number="4" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Positive" />
-                <ResultBox number="5" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Positive" />
-                <ResultBox number="6" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Positive" />
-                <ResultBox number="7" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Positive" />
-                <ResultBox number="8" name="Kevin Julio" disease="Cancer Cervix" date="17 Januari 2022" similarity="88" verdict="Positive" />
+                {
+                    result && result.map((item, index) => {
+                        let tanggal = new Date(parseInt(item.tanggal));
+                        const strTanggal = tanggal.getDate() + ' ' + (monthNames[tanggal.getMonth()]) + ' ' + tanggal.getFullYear();
+                        return (
+                            <ResultBox
+                                number={index+1}
+                                name={item.namaPengguna}
+                                disease={item.namaPenyakit}
+                                date={strTanggal}
+                                similarity={item.similarity}
+                                verdict={item.status ? "Positive" : "Negative"}
+                            />
+                        )
+                    })
+                }
             </Stack>
         </Box>
     )

@@ -18,29 +18,25 @@ function UploadDNA() {
     return (
 
         <Box>
-            {/* HEADER -> NAVBAR */}
-
             <Box borderBottom="1px" borderColor="#2B2C34">
                 <Header currentPage='Upload' />
             </Box>
-
-            {/* CONTENT */}
-            <Stack pr="10%" pl="10%" pt="3%" h="87vh">
-
-                {/* TEXT LANDING */}
+            <Stack 
+                pr="10%" 
+                pl="10%" 
+                pt="3%" 
+                h="87vh"
+            >
                 <Center>
                     <Box pb="5%">
                         <Title text="NEW DISEASE UPLOAD" />
                     </Box>
                 </Center>
-
-                {/* Input */}
                 <Grid
                     gap={1}
                     templateColumns="repeat(14,1fr)"
                     templateRows="repeat(1,1fr)"
                 >
-                    {/* Row 1 : Text */}
                     <GridItem colSpan={1} />
                     <GridItem colSpan={5}>
                         <Text

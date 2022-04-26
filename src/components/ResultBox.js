@@ -6,7 +6,7 @@ import {
 } from '@chakra-ui/react';
 
 function ResultBox({ number, name, disease, date, similarity, verdict }) {
-    const verdictColor = verdict === 'Positive' ? '#6246ea' : '#e45858';
+    const verdictColor = verdict === 'Positive' ? '#e45858' : '#6246ea';
 
     return (
         <Box
@@ -39,7 +39,7 @@ function ResultBox({ number, name, disease, date, similarity, verdict }) {
                         {name}
                     </Text>
                     <Text
-                        fontSize={{ xl: '19px', lg: '16px', md: '12px', sm: '10px' }}
+                        fontSize={{ xl: '20px', lg: '16px', md: '12px', sm: '10px' }}
                         fontWeight="bold"
                     >
                         {disease}
@@ -61,13 +61,13 @@ function ResultBox({ number, name, disease, date, similarity, verdict }) {
                         alignSelf="flex-end"
                         fontSize={{ xl: '15px', lg: '12px', md: '10px', sm: '8px' }}
                     >
-                        {similarity}% Similarity
+                        {Math.round(similarity * 100) / 100}% Similarity
                     </Text>
                     <Text
                         fontWeight="bold"
                         alignSelf="flex-end"
                         color={verdictColor}
-                        fontSize={{ xl: '19px', lg: '16px', md: '12px', sm: '10px' }}
+                        fontSize={{ xl: '20px', lg: '16px', md: '12px', sm: '10px' }}
                     >
                         {verdict}
                     </Text>
