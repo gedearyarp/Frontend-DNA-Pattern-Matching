@@ -5,7 +5,7 @@ import {
     Text
 } from '@chakra-ui/react';
 
-function ResultBox({ number, name, disease, date, similarity, verdict }) {
+function HistoryBox({ number, name, disease, date, similarity, verdict }) {
     const verdictColor = verdict === 'Positive' ? '#e45858' : '#6246ea';
 
     return (
@@ -29,7 +29,7 @@ function ResultBox({ number, name, disease, date, similarity, verdict }) {
                 </Text>
                 <Stack
                     spacing="0%" pl="7%"
-                    fontSize={{ xl: '15px', lg: '12px', md: '10px', sm: '8px' }}
+                    fontSize={{ xl: '16px', lg: '12px', md: '10px', sm: '8px' }}
                     color="#2b2c34"
                 >
                     <Text
@@ -39,12 +39,13 @@ function ResultBox({ number, name, disease, date, similarity, verdict }) {
                         {name}
                     </Text>
                     <Text
-                        fontSize={{ xl: '20px', lg: '16px', md: '12px', sm: '10px' }}
+                        fontSize={{ xl: '24px', lg: '16px', md: '12px', sm: '10px' }}
                         fontWeight="bold"
                     >
                         {disease}
                     </Text>
                     <Text
+                        fontSize={{ xl: '14px', lg: '12px', md: '10px', sm: '8px' }}
                         fontWeight="semibold"
                         color="#515151"
                     >
@@ -59,7 +60,7 @@ function ResultBox({ number, name, disease, date, similarity, verdict }) {
                     <Text
                         fontWeight="medium"
                         alignSelf="flex-end"
-                        fontSize={{ xl: '15px', lg: '12px', md: '10px', sm: '8px' }}
+                        fontSize={{ xl: '16px', lg: '12px', md: '10px', sm: '8px' }}
                     >
                         {Math.round(similarity * 100) / 100}% Similarity
                     </Text>
@@ -67,7 +68,7 @@ function ResultBox({ number, name, disease, date, similarity, verdict }) {
                         fontWeight="bold"
                         alignSelf="flex-end"
                         color={verdictColor}
-                        fontSize={{ xl: '20px', lg: '16px', md: '12px', sm: '10px' }}
+                        fontSize={{ xl: '24px', lg: '16px', md: '12px', sm: '10px' }}
                     >
                         {verdict}
                     </Text>
@@ -77,4 +78,4 @@ function ResultBox({ number, name, disease, date, similarity, verdict }) {
     )
 }
 
-export default ResultBox;
+export default HistoryBox;

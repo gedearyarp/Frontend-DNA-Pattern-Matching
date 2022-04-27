@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import SubmitButton from '../components/SubmitButton';
 import Title from '../components/Title';
@@ -16,15 +16,14 @@ import {
 function UploadDNA() {
     const [disease, setDisease] = useState("");
     return (
-
         <Box>
             <Box borderBottom="1px" borderColor="#2B2C34">
                 <Header currentPage='Upload' />
             </Box>
-            <Stack 
-                pr="10%" 
-                pl="10%" 
-                pt="3%" 
+            <Stack
+                pr="10%"
+                pl="10%"
+                pt="3%"
                 h="87vh"
             >
                 <Center>

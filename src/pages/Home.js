@@ -70,8 +70,6 @@ function Home() {
                     <Footer />
                 </Box>
             </Stack>
-
-
         </Flex>
     )
 }

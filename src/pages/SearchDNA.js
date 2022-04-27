@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from '../components/Header'
 import SubmitButton from '../components/SubmitButton';
-import ResultBox from '../components/ResultBox';
+import HistoryBox from '../components/HistoryBox';
 import Title from '../components/Title';
 import {
     Stack,
@@ -14,12 +14,12 @@ import {
     GridItem,
     HStack
 } from '@chakra-ui/react';
+import convertTanggal from '../util/ConvertTanggal';
 
 function SearchDNA() {
     const [searchInput, setSearchInput] = useState("");
     const [result, setResult] = useState([]);
     const [onLoading, setOnLoading] = useState(false);
-    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     useEffect(() => {
         const fetchAllHistory = async () => {
@@ -129,23 +129,19 @@ function SearchDNA() {
                         </HStack>
                     </Text>
                 </Box>
-                { !onLoading ? (
+                {!onLoading ? (
                     <>
                         {
-                            result && result.map((item, index) => {
-                                let tanggal = new Date(parseInt(item.tanggal));
-                                const strTanggal = tanggal.getDate() + ' ' + (monthNames[tanggal.getMonth()]) + ' ' + tanggal.getFullYear();
-                                return (
-                                    <ResultBox
-                                        number={index+1}
-                                        name={item.namaPengguna}
-                                        disease={item.namaPenyakit}
-                                        date={strTanggal}
-                                        similarity={item.similarity}
-                                        verdict={item.status ? "Positive" : "Negative"}
-                                    />
-                                )
-                            })
+                            result && result.map((item, index) => (
+                                <HistoryBox
+                                    number={index + 1}
+                                    name={item.namaPengguna}
+                                    disease={item.namaPenyakit}
+                                    date={convertTanggal(parseInt(item.tanggal))}
+                                    similarity={item.similarity}
+                                    verdict={item.status ? "Positive" : "Negative"}
+                                />
+                            ))
                         }
                     </>
                 ) : (
@@ -159,6 +155,13 @@ function SearchDNA() {
                         </Text>
                     </Center>
                 )}
+                <Center >
+                    <Box
+                        w="100%"
+                        mt="3%"
+                        mb="1%"
+                    />
+                </Center>
             </Stack>
         </Box>
     )

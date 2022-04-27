@@ -3,7 +3,7 @@ import {
     Text,
     Button
 } from '@chakra-ui/react';
-function SubmitButton({ text, setValue,  }) {
+function SubmitButton({ text, setValue }) {
     return (
         <Button
             py="20px"

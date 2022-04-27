@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import SubmitButton from '../components/SubmitButton';
 import Title from '../components/Title';
@@ -13,14 +13,32 @@ import {
     Text,
     Grid,
     GridItem,
-    HStack
+    HStack,
+    AlertDialog,
+    AlertDialogBody,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogContent,
+    AlertDialogOverlay,
+    useDisclosure,
+    AlertDialogCloseButton
 } from '@chakra-ui/react';
+import convertTanggal from '../util/ConvertTanggal';
+import HistoryBox from '../components/HistoryBox';
+import Footer from '../components/Footer';
 
 function CheckDNA() {
-    const [name, setName] = useState("");
+    const textInputRef = useRef();
+    const [name, setName] = useState(null);
     const [diseaseList, setDiseaseList] = useState([]);
-    const [disease, setDisease] = useState("");
-    
+    const [disease, setDisease] = useState(null);
+    const [txtFile, setTxtFile] = useState(null);
+    const [txtString, setTxtString] = useState(null);
+    const [result, setResult] = useState(null);
+    const [onLoading, setOnLoading] = useState(false);
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [alertMessage, setAlertMessage] = useState(null);
+
     useEffect(() => {
         axios.get(`https://be-prasmanan-stima-3.herokuapp.com/penyakit`)
             .then(res => {
@@ -32,6 +50,65 @@ function CheckDNA() {
         setDisease(e.target.value)
     }
 
+    const onChangeText = (e) => {
+        e.preventDefault();
+        setTxtFile(e.target.files[0]);
+        const exampleFileReader = new FileReader();
+        exampleFileReader.onload = async (e) => {
+            const text = (e.target.result);
+            setTxtString(text.trim());
+        };
+        exampleFileReader.readAsText(e.target.files[0]);
+    };
+
+    const handleSubmit = (e) => {
+        if (name === null || name === '') {
+            setAlertMessage('Please input your name.');
+            setOnLoading(false);
+            onOpen();
+            return;
+        }
+        if (disease === null) {
+            setAlertMessage('Please input your disease prediction.');
+            setOnLoading(false);
+            onOpen();
+            return;
+        }
+        if (txtString === null || txtFile === null) {
+            setAlertMessage('Please input your dna sequence.');
+            setOnLoading(false);
+            onOpen();
+            return;
+        }
+
+        const fetchResult = async () => {
+            setOnLoading(true);
+            const params = {
+                namaPengguna: name,
+                namaPenyakit: disease,
+                sequenceDNA: txtString
+            };
+
+            try {
+                await axios.post(`https://be-prasmanan-stima-3.herokuapp.com/dna/test`, params)
+                    .then(res => {
+                        setResult(res.data.data);
+                    });
+            }
+            catch (err) {
+                if (err.response.data.message === 'Invalid DNA sequence') {
+                    setAlertMessage('Your DNA sequence is invalid.');
+                } else {
+                    setAlertMessage('Something went wrong.');
+                }
+                onOpen();
+            }
+            setOnLoading(false);
+        }
+
+        fetchResult();
+    }
+
     return (
         <Box>
             <Box borderBottom="1px" borderColor="#2B2C34">
@@ -40,7 +117,7 @@ function CheckDNA() {
             <Stack pr="10%" pl="10%" pt="3%" h="87vh">
                 <Center>
                     <Box pb="2%">
-                        <Title text="DNA TESTING"/>
+                        <Title text="DNA TESTING" />
                     </Box>
                 </Center>
                 <Grid
@@ -96,29 +173,74 @@ function CheckDNA() {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
-                        
+
                     </GridItem>
                     <GridItem colSpan={1} />
                     <GridItem colSpan={4}>
+                        <input
+                            type="file"
+                            accept=".txt"
+                            style={{ display: 'none' }}
+                            onChange={onChangeText}
+                            ref={textInputRef}
+                        />
                         <Button
                             py="20px"
                             border={{ md: '4px', sm: '2px' }}
                             borderColor="#2B2C34"
                             borderRadius='30px'
+                            borderStyle="dotted"
                             w="100%"
                             bg="#D1D1E9"
                             fontSize={{ xl: '21px', lg: '15.5px', md: '11px', sm: '9px' }}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                textInputRef.current.click();
+                            }}
                         >
-                            <Text color="#515151" m="3" fontStyle="italic" fontWeight="normal">
+                            <Text color="#515151" m="3" fontStyle="italic" fontWeight="normal" >
                                 Upload file
                             </Text>
                         </Button>
-                        <Text
-                            fontSize={{ xl: '17px', lg: '14px', md: '11px', sm: '9px' }}
-                            mt="5px"
+                        <AlertDialog
+                            motionPreset='slideInBottom'
+                            onClose={onClose}
+                            isOpen={isOpen}
+                            isCentered
                         >
-                            *Only .txt file
-                        </Text>
+                            <AlertDialogOverlay />
+
+                            <AlertDialogContent>
+                                <AlertDialogHeader>Invalid Input!</AlertDialogHeader>
+                                <AlertDialogCloseButton />
+                                <AlertDialogBody>
+                                    {alertMessage}
+                                </AlertDialogBody>
+                                <AlertDialogFooter>
+                                    <Button onClick={onClose} background='#6246ea' color="#fffffe">
+                                        Back to page
+                                    </Button>
+                                </AlertDialogFooter>
+                            </AlertDialogContent>
+                        </AlertDialog>
+                        {
+                            txtFile && txtFile.name ? (
+                                <Text
+                                    fontSize={{ xl: '17px', lg: '14px', md: '11px', sm: '9px' }}
+                                    mt="5px"
+                                    color="#6246ea"
+                                >
+                                    {txtFile.name}
+                                </Text>
+                            ) : (
+                                <Text
+                                    fontSize={{ xl: '17px', lg: '14px', md: '11px', sm: '9px' }}
+                                    mt="5px"
+                                >
+                                    *Only .txt file
+                                </Text>
+                            )
+                        }
                     </GridItem>
                     <GridItem colSpan={1} />
                     <GridItem colSpan={4}>
@@ -135,9 +257,9 @@ function CheckDNA() {
                             onChange={handleDiseaseSelect}
                         >
                             {
-                                diseaseList.map((disease, index) => {
+                                diseaseList.map((dis) => {
                                     return (
-                                        <option value={disease.namaPenyakit}>{disease.namaPenyakit}</option>
+                                        <option value={dis.namaPenyakit}>{dis.namaPenyakit}</option>
                                     )
                                 })
                             }
@@ -149,18 +271,17 @@ function CheckDNA() {
                             *If the disease cannot be found, please upload the disease's DNA sequence beforehand.
                         </Text>
                     </GridItem>
-
-                    {/* Submit Button */}
                     <GridItem colSpan={14}>
                         <Center
                             pt="2.5%"
                             pb="2%"
                         >
-                            <SubmitButton text="SUBMIT"/>
+                            <SubmitButton
+                                text="SUBMIT"
+                                setValue={handleSubmit}
+                            />
                         </Center>
                     </GridItem>
-
-                    {/* Result */}
                     <GridItem colSpan={14}>
                         <Box >
                             <Text
@@ -181,37 +302,62 @@ function CheckDNA() {
                                 </HStack>
                             </Text>
                         </Box>
-                        <Box
-                            py="2.5%"
-                            px="3%"
-                            border={{ md: '2px', sm: '1px' }}
-                            h="auto"
-                            borderRadius={{ xl: '25px', lg: '20px', md: '15px', sm: '10px' }}
-                            mt="20px"
-                        >
-                            <Stack 
-                                spacing="1%"
-                                fontSize={{ xl: '18px', lg: '15.5px', md: '13px', sm: '11px' }}
-                            >
-                                <Text>
-                                    Checking Date              :
-                                </Text>
-                                <Text>
-                                    Username                   :
-                                </Text>
-                                <Text>
-                                    Disease Prediction         :
-                                </Text>
-                                <Text>
-                                    Similarity Percentage      :
-                                </Text>
-                                <Text>
-                                    Checking Result            :
-                                </Text>
-                            </Stack>
-                        </Box>
+                        {
+                            onLoading ? (
+                                <Center py="2%">
+                                    <Text
+                                        fontSize={{ xl: '30px', lg: '27px', md: '23px', sm: '18px' }}
+                                        color="#2b2c34"
+                                        fontWeight="semibold"
+                                    >
+                                        Calculating your test result... Please wait...
+                                    </Text>
+                                </Center>
+                            ) : (
+                                result ? (
+                                    <HistoryBox
+                                        number="NEW"
+                                        name={result.namaPengguna}
+                                        disease={result.namaPenyakit}
+                                        date={convertTanggal(parseInt(result.tanggal))}
+                                        similarity={result.similarity}
+                                        verdict={result.status ? "Positive" : "Negative"}
+                                    />
+                                ) : (
+                                    <Box
+                                        m="50px"
+                                        p="1%"
+                                        border="5px"
+                                        borderColor="#2b2c34"
+                                        borderRadius={{ xl: '25px', lg: '20px', md: '15px', sm: '10px' }}
+                                        borderStyle="dotted"
+                                        h="auto"
+                                    >
+                                        <Center py="2%">
+                                        <Text
+                                            fontSize={{ xl: '35px', lg: '27px', md: '23px', sm: '18px' }}
+                                            color="#2b2c34"
+                                            fontWeight="semibold"
+                                        >
+                                            Your test result will be displayed here!
+                                        </Text>
+                                    </Center>
+                                    </Box>
+                                    
+                                )
+                            )
+                        }
+                        {/* <HistoryBox
+                                            number="NEW"
+                                            name={result.namaPengguna}
+                                            disease={result.namaPenyakit}
+                                            date={convertTanggal(parseInt(result.tanggal))}
+                                            similarity={result.similarity}
+                                            verdict={result.status ? "Positive" : "Negative"}
+                                        /> */}
                     </GridItem>
                 </Grid>
+                <Footer/>
             </Stack>
         </Box>
     )
