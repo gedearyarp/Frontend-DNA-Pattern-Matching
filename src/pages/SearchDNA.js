@@ -15,6 +15,7 @@ import {
     HStack
 } from '@chakra-ui/react';
 import convertTanggal from '../util/ConvertTanggal';
+import Prasmanan from '../components/Prasmanan';
 
 function SearchDNA() {
     const [searchInput, setSearchInput] = useState("");
@@ -159,10 +160,18 @@ function SearchDNA() {
                     <Box
                         w="100%"
                         mt="3%"
-                        mb="1%"
-                    />
+                        mb="20px"
+                    >
+                        <Text align="center">
+                            © 2022 prasmanan.
+                        </Text>
+                        <Text align="center">
+                            This site created to fulfill the tubes stima 3.
+                        </Text>
+                    </Box>
                 </Center>
             </Stack>
+            <Prasmanan/>
         </Box>
     )
 }

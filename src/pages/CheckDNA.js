@@ -26,6 +26,7 @@ import {
 import convertTanggal from '../util/ConvertTanggal';
 import HistoryBox from '../components/HistoryBox';
 import Footer from '../components/Footer';
+import Prasmanan from '../components/Prasmanan';
 
 function CheckDNA() {
     const textInputRef = useRef();
@@ -359,6 +360,7 @@ function CheckDNA() {
                 </Grid>
                 <Footer/>
             </Stack>
+            <Prasmanan/>
         </Box>
     )
 }

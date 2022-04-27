@@ -12,6 +12,7 @@ import {
     Grid,
     GridItem,
 } from '@chakra-ui/react';
+import Prasmanan from '../components/Prasmanan';
 
 function UploadDNA() {
     const [disease, setDisease] = useState("");
@@ -113,8 +114,8 @@ function UploadDNA() {
                         </Center>
                     </GridItem>
                 </Grid>
-
             </Stack>
+            <Prasmanan/>
         </Box>
     )
 }
