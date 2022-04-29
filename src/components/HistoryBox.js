@@ -23,7 +23,7 @@ function HistoryBox({ number, name, disease, date, similarity, verdict }) {
             >
                 <Text
                     align="center" pos="absolute" left={{ xl: '1%', lg: '0.7%', md: '0.4%', sm: '0%' }}
-                    fontWeight="bold" fontSize={{ xl: '28px', lg: '17.5px', md: '14px', sm: '11px' }}
+                    fontWeight="bold" fontSize={{ xl: '20px', lg: '17.5px', md: '14px', sm: '11px' }}
                 >
                     {number}
                 </Text>

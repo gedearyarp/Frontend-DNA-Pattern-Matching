@@ -12,12 +12,12 @@ function Prasmanan() {
         >
             <HStack >
                 <Text>
-                    With
+                    with
                 </Text>
                 <FaHeart color='#e45858'/>
             </HStack>
             <Text align="right">
-                gedearya romy mike
+                arya romy mike
             </Text>
         </Box>
     )

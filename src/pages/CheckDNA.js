@@ -23,6 +23,7 @@ import {
     useDisclosure,
     AlertDialogCloseButton
 } from '@chakra-ui/react';
+import {GoAlert} from 'react-icons/go';
 import convertTanggal from '../util/ConvertTanggal';
 import HistoryBox from '../components/HistoryBox';
 import Footer from '../components/Footer';
@@ -64,19 +65,19 @@ function CheckDNA() {
 
     const handleSubmit = (e) => {
         if (name === null || name === '') {
-            setAlertMessage('Please input your name.');
+            setAlertMessage('Please input your name');
             setOnLoading(false);
             onOpen();
             return;
         }
         if (disease === null) {
-            setAlertMessage('Please input your disease prediction.');
+            setAlertMessage('Please input your disease prediction');
             setOnLoading(false);
             onOpen();
             return;
         }
         if (txtString === null || txtFile === null) {
-            setAlertMessage('Please input your dna sequence.');
+            setAlertMessage('Please input your dna sequence');
             setOnLoading(false);
             onOpen();
             return;
@@ -98,9 +99,9 @@ function CheckDNA() {
             }
             catch (err) {
                 if (err.response.data.message === 'Invalid DNA sequence') {
-                    setAlertMessage('Your DNA sequence is invalid.');
+                    setAlertMessage('Your DNA sequence is invalid');
                 } else {
-                    setAlertMessage('Something went wrong.');
+                    setAlertMessage('Something went wrong');
                 }
                 onOpen();
             }
@@ -212,13 +213,20 @@ function CheckDNA() {
                             <AlertDialogOverlay />
 
                             <AlertDialogContent>
-                                <AlertDialogHeader>Invalid Input!</AlertDialogHeader>
+                                <AlertDialogHeader>
+                                    <HStack>
+                                        <GoAlert color="#e45858"/> 
+                                        <Text>
+                                            Invalid Input!
+                                        </Text>
+                                    </HStack>
+                                </AlertDialogHeader>
                                 <AlertDialogCloseButton />
                                 <AlertDialogBody>
                                     {alertMessage}
                                 </AlertDialogBody>
                                 <AlertDialogFooter>
-                                    <Button onClick={onClose} background='#6246ea' color="#fffffe">
+                                    <Button onClick={onClose} background='#e45858' color="#fffffe">
                                         Back to page
                                     </Button>
                                 </AlertDialogFooter>
@@ -348,14 +356,6 @@ function CheckDNA() {
                                 )
                             )
                         }
-                        {/* <HistoryBox
-                                            number="NEW"
-                                            name={result.namaPengguna}
-                                            disease={result.namaPenyakit}
-                                            date={convertTanggal(parseInt(result.tanggal))}
-                                            similarity={result.similarity}
-                                            verdict={result.status ? "Positive" : "Negative"}
-                                        /> */}
                     </GridItem>
                 </Grid>
                 <Footer/>
