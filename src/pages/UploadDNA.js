@@ -24,6 +24,7 @@ import {
     HStack
 } from '@chakra-ui/react';
 import Prasmanan from '../components/Prasmanan';
+import Footer from '../components/Footer';
 
 function UploadDNA() {
     const textInputRef = useRef();
@@ -255,6 +256,7 @@ function UploadDNA() {
                         </Center>
                     </GridItem>
                 </Grid>
+                <Footer/>
             </Stack>
             <Prasmanan/>
         </Box>
