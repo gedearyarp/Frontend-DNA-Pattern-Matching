@@ -56,7 +56,7 @@ function UploadDNA() {
 
         if (txtString === null || txtString === "" || txtFile === null) {
             setAlertTitle("Invalid Input!");
-            setAlertMessage('Please input your dna sequence');
+            setAlertMessage('Please input disease\' dna sequence');
             onOpen();
             return;
         }
