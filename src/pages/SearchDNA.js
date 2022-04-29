@@ -131,20 +131,32 @@ function SearchDNA() {
                     </Text>
                 </Box>
                 {!onLoading ? (
-                    <>
-                        {
-                            result && result.map((item, index) => (
-                                <HistoryBox
-                                    number={index + 1}
-                                    name={item.namaPengguna}
-                                    disease={item.namaPenyakit}
-                                    date={convertTanggal(parseInt(item.tanggal))}
-                                    similarity={item.similarity}
-                                    verdict={item.status ? "Positive" : "Negative"}
-                                />
-                            ))
-                        }
-                    </>
+                    result.length ===  0 ? (
+                        <Center >
+                            <Text
+                                fontSize={{ xl: '30px', lg: '27px', md: '23px', sm: '18px' }}
+                                color="#6246ea"
+                                fontWeight="bold"
+                            >
+                                Sorry, no data found ):
+                            </Text>
+                        </Center>
+                    ) : (
+                        <>
+                            {
+                                result && result.map((item, index) => (
+                                    <HistoryBox
+                                        number={index + 1}
+                                        name={item.namaPengguna}
+                                        disease={item.namaPenyakit}
+                                        date={convertTanggal(parseInt(item.tanggal))}
+                                        similarity={item.similarity}
+                                        verdict={item.status ? "Positive" : "Negative"}
+                                    />
+                                ))
+                            }
+                        </>
+                    )
                 ) : (
                     <Center >
                         <Text
