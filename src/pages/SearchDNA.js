@@ -25,7 +25,7 @@ function SearchDNA() {
     useEffect(() => {
         const fetchAllHistory = async () => {
             setOnLoading(true);
-            await axios.post(`https://be-prasmanan-stima-3.herokuapp.com/search?q=`)
+            await axios.post(`https://be-prasmanan-v2.vercel.app/search?q=`)
                 .then(res => {
                     setResult(res.data.data);
                 })
@@ -38,7 +38,7 @@ function SearchDNA() {
         const fetchHistory = async () => {
             setOnLoading(true);
             let q = searchInput.trim()
-            await axios.post(`https://be-prasmanan-stima-3.herokuapp.com/search?q=${q}`)
+            await axios.post(`https://be-prasmanan-v2.vercel.app/search?q=${q}`)
                 .then(res => {
                     setResult(res.data.data);
                 })

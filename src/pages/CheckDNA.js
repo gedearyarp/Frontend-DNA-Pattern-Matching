@@ -41,7 +41,7 @@ function CheckDNA() {
     const [alertMessage, setAlertMessage] = useState(null);
 
     useEffect(() => {
-        axios.get(`https://be-prasmanan-stima-3.herokuapp.com/penyakit`)
+        axios.get(`https://be-prasmanan-v2.vercel.app/penyakit`)
             .then(res => {
                 setDiseaseList(res.data.data);
             })
@@ -91,7 +91,7 @@ function CheckDNA() {
             };
 
             try {
-                await axios.post(`https://be-prasmanan-stima-3.herokuapp.com/dna/test`, params)
+                await axios.post(`https://be-prasmanan-v2.vercel.app/dna/test`, params)
                     .then(res => {
                         setResult(res.data.data);
                     });
